@@ -1,0 +1,37 @@
+)
+;
+boundaryField
+{
+    leftInletWall
+    {
+        type            fixedValue;
+        value           uniform (0.4 0 0);
+    }
+    leftWall
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    rightWall
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform (0 0 0);
+    }
+    lowerWall
+    {
+        type            noSlip;
+    }
+    atmosphere
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    sides
+    {
+        type            noSlip;
+    }
+}
+
+
+// ************************************************************************* //
