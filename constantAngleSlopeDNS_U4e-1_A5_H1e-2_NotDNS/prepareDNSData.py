@@ -4,7 +4,7 @@ import pandas as pd
 import fileinput as fi
 
 def timeStepsList():
-	sp.run("ls -1 -d 0.* [1-9]* > timeStepsList.txt", shell=True, check=True)
+	sp.run("ls -1 -d 0.* [1-9]* > timeStepsList.txt", shell=True)
 	timeStepsList = np.loadtxt("timeStepsList.txt", dtype=str)
 	index = np.argsort(timeStepsList.astype(np.float))
 	timeStepsList = timeStepsList[index]
