@@ -1,10 +1,12 @@
 import numpy as np
 import pandas as pd
-#import tensorflow as tf
+import matplotlib.pyplot as plt
+import seaborn as sns
+import tensorflow as tf
 
-#from tensorflow import keras
-#from tensorflow.keras import layers
-#from tensorflow.keras.layers.experimental import preprocessing
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.layers.experimental import preprocessing
 
 def timeStepsList():
 	timeStepsList = np.loadtxt("timeStepsList.txt", dtype=str)
@@ -43,18 +45,27 @@ def formDataset(TSL, folder, FsScalars, FsVectors, FsTensors, size):
 		tensors = FsTensors.apply(readTensor, axis=1, **kwargs)
 		tmp = pd.concat(list(scalars[:])+list(vectors[:])+list(tensors[:]), axis=1)
 		data = data.append(tmp, ignore_index=True)
-	print(data)
+	return data
 
 def main():
 	TSL = timeStepsList()
 	folder = 'TIF'
 	deltaT = 1e-06
-	FsScalars = pd.DataFrame([['alpha.water'], ['res/p'], ['res/I0'], ['res/I1'], ['res/I2'], ['res/I3'], ['res/I4']])
+	FsScalars = pd.DataFrame([['alpha.water'], ['res/alpha.water'], ['res/p'], ['res/I0'], ['res/I1'], ['res/I2'], ['res/I3'], ['res/I4']])
 	FsVectors = pd.DataFrame([['U'], ['res/U'], ['res/Uref']])
 	FsTensors = pd.DataFrame([['res/T0'], ['res/T1'], ['res/T2'], ['res/T3'], ['res/T4'], ['res/T5'], ['res/T6'], ['res/T7'], ['res/T8']])
 	size = 27500
-	formDataset(TSL, folder, FsScalars, FsVectors, FsTensors, size)
-
+	lenTSL = len(TSL)
+	trainTSL = TSL[:int(lenTSL/3)]
+	testTSL = TSL[int(lenTSL/3):]
+	trainData = formDataset(trainTSL, folder, FsScalars, FsVectors, FsTensors, size)
+	trainData['dU0'] = trainData['res/U0'] - trainData['U0']
+	trainData['dU1'] = trainData['res/U1'] - trainData['U1']
+	trainData['dU2'] = trainData['res/U2'] - trainData['U2']
+	trainData['dAW'] = trainData['res/alpha.water'] - trainData['alpha.water']
+	print(trainData.columns)
+	sns.pairplot(trainData[['dU0', 'alpha.water', 'res/p', 'res/I0']], diag_kind='kde')
+#	testData = formDataset(testTSL, folder, FsScalars, FsVectors, FsTensors, size)
 
 if __name__ == "__main__":
     main()
