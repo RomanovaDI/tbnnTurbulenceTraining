@@ -25,7 +25,7 @@ def spaceMeanU(folder, fileName, sz):
 	sz2 = sz[1]
 	nrows = sz1S + sz2[0] * sz2[1] * sz2[2]
 	uArr = pd.read_csv(folder+'/'+fileName, header=None, skiprows=23, nrows=nrows, dtype=str)
-	uArr.iloc[:,0] = uArr.iloc[:,0].str.replace('[(,)]', '')
+	uArr.iloc[:,0] = uArr.iloc[:,0].str.replace('[(,)]', '', regex=True)
 	uArr = uArr.iloc[:,0].str.split(expand=True)
 	uArrXNp = np.concatenate((avComp(uArr.iloc[:sz1S,0].to_numpy(dtype=float), sz1), avComp(uArr.iloc[sz1S:,0].to_numpy(dtype=float), sz2)), axis=0)
 	uArrYNp = np.concatenate((avComp(uArr.iloc[:sz1S,1].to_numpy(dtype=float), sz1), avComp(uArr.iloc[sz1S:,1].to_numpy(dtype=float), sz2)), axis=0)
