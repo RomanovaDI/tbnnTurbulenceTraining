@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//application     interFoam;
+application     tbnnTurbulenceInterFoam;
+
+//startFrom       startTime;
+startFrom       latestTime;
+
+startTime       0;
+latestTime      startTimePattern;
+
+stopAt          endTime;
+
+endTime         endTimePattern;
+
+//deltaT          5e-06;
+deltaT          deltaTPattern;
+
+//writeControl    adjustableRunTime;
+writeControl    timeStep;
+
+//writeInterval   1e-03;
+writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  8;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable yes;
+
+adjustTimeStep  no;//yes;
+
+maxCo           1;
+maxAlphaCo      1;
+
+maxDeltaT       1;
+
+#sinclude   "sampling"
+
+// ************************************************************************* //
