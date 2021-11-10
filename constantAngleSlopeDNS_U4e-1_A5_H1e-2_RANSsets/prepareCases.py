@@ -18,6 +18,7 @@ def prepareFolders(DNSfolder, TSL, deltaT):
 				pwd;\
 				cp ../'+DNSfolder+time+'/USpAv 0/U;\
 				cp ../'+DNSfolder+time+'/awSpAv 0/alpha.water;\
+				cp ../'+DNSfolder+time+'/p_rghSpAv 0/p_rgh;\
 				mv 0 '+time, shell=True, check=True)
 		with fi.FileInput('TIF'+time+'/system/controlDict', inplace=True) as file:
 			for line in file:
@@ -34,6 +35,8 @@ def prepareFolders(DNSfolder, TSL, deltaT):
 		sp.run('cp '+DNSfolder+TSL[n+1]+'/USpAv '+'TIF'+TSL[n]+'/'+TSL[n+1]+'/Uref', shell=True, check=True)
 	for n in range(len(TSL)-1):
 		sp.run('cp '+DNSfolder+TSL[n+1]+'/awSpAv '+'TIF'+TSL[n]+'/'+TSL[n+1]+'/AWref', shell=True, check=True)
+	for n in range(len(TSL)-1):
+		sp.run('cp '+DNSfolder+TSL[n+1]+'/p_rghSpAv '+'TIF'+TSL[n]+'/'+TSL[n+1]+'/p_rghref', shell=True, check=True)
 	for n in range(len(TSL)-1):
 		sp.run('cp -r TIF'+TSL[n]+'/'+TSL[n+1]+' TIF'+TSL[n]+'/'+TSL[n]+'/res', shell=True, check=True)
 

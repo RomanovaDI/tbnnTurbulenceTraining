@@ -17,6 +17,8 @@ def spaceMean(TSL, Fs, sizes):
 				spaceMeanU(folder, fileName, sizes)
 			elif fileName == 'alpha.water':
 				spaceMeanAlphaWater(folder, fileName, sizes)
+			elif fileName == 'p_rgh':
+				spaceMeanP_rgh(folder, fileName, sizes)
 	return
 
 def spaceMeanU(folder, fileName, sz):
@@ -68,6 +70,28 @@ def spaceMeanAlphaWater(folder, fileName, sz):
 		for line in fin:
 			fout.write(line)
 
+def spaceMeanP_rgh(folder, fileName, sz):
+	sz1 = sz[0]
+	sz1S = sz1[0]*sz1[1]*sz1[2]
+	sz2 = sz[1]
+	nrows = sz1S + sz2[0] * sz2[1] * sz2[2]
+	pArr = pd.read_csv(folder+'/'+fileName, header=None, skiprows=23, nrows=nrows, dtype=str)
+	pArrNp = np.concatenate((avComp(pArr.iloc[:sz1S,0].to_numpy(dtype=float), sz1), avComp(pArr.iloc[sz1S:,0].to_numpy(dtype=float), sz2)), axis=0)
+	pArrAv = pd.DataFrame(data=pArrNp, dtype=str, columns=['p_rgh'])
+	sp.run("cp patterns/p_rghSpaceAvaragePatternBeginning "+folder+"/p_rghSpAv", shell=True, check=True)
+	with open(folder+'/p_rghSpAv', 'a') as f:
+		f.write(str(int(nrows/8))+'\n(\n')
+	with fi.FileInput(folder+'/p_rghSpAv', inplace=True) as file:
+		for line in file:
+			print(line.replace('folderName', '"'+folder+'"'), end='')
+	with fi.FileInput(folder+'/p_rghSpAv', inplace=True) as file:
+		for line in file:
+			print(line.replace('fieldName', 'p_rghSpAv'), end='')
+	pArrAv['p_rgh'].to_csv(folder+'/p_rghSpAv', mode='a', index=False, header=False)
+	with open(folder+'/p_rghSpAv', 'a') as fout, fi.input('patterns/alpha.waterSpaceAvaragePatternEnding') as fin:
+		for line in fin:
+			fout.write(line)
+
 def avComp(arr, sz):
 	arr = np.average(np.reshape(arr, (-1,2)), axis=1)
 	arr = np.transpose(np.reshape(np.average(np.reshape(np.transpose(np.reshape(arr, (-1,int(sz[0]/2)))), (-1,2)), axis=1), (int(sz[0]/2),-1)))
@@ -77,7 +101,7 @@ def avComp(arr, sz):
 
 def main():
 	TSL = timeStepsList()
-	Fs = list(['alpha.water', 'U'])
+	Fs = list(['alpha.water', 'U', 'p_rgh'])
 	sizes = list([[1000, 20, 100], [1000, 20, 10]])
 	spaceMean(TSL, Fs, sizes)
 
