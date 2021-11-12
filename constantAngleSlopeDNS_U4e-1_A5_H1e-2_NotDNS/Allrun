@@ -3,6 +3,7 @@
 . ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
 #------------------------------------------------------------------------------
 
+cp -r startMoments/0 ./
 runApplication blockMesh
 runApplication setFields
 #runApplication $(getApplication)
