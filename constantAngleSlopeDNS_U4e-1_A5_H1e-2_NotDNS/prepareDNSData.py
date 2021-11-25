@@ -102,7 +102,7 @@ def avComp(arr, sz):
 def main():
 	TSL = timeStepsList()
 	Fs = list(['alpha.water', 'U', 'p_rgh'])
-	sizes = list([[1000, 20, 100], [1000, 20, 10]])
+	sizes = list([[1000, 20, 100], [1000, 20, 20]])
 	spaceMean(TSL, Fs, sizes)
 
 if __name__ == "__main__":
