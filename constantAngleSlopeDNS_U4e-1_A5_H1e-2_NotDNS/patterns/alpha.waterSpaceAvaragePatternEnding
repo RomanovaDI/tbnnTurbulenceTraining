@@ -10,9 +10,7 @@ boundaryField
     }
     leftWall
     {
-        type            inletOutlet;
-        inletValue      uniform 0;
-        value           uniform 0;
+        type            zeroGradient;
     }
     rightWall
     {
@@ -30,7 +28,7 @@ boundaryField
     }
     sides
     {
-        type            zeroGradient;
+        type            empty;
     }
 }
 
