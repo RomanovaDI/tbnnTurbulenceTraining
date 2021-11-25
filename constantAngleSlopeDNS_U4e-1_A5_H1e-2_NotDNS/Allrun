@@ -4,8 +4,10 @@
 #------------------------------------------------------------------------------
 
 cp -r startMoments/0 ./
+cp 0/alpha.water.orig 0/alpha.water
+cp 0/U.orig 0/U
 runApplication blockMesh
-runApplication setFields
+#runApplication setFields
 #runApplication $(getApplication)
 runApplication decomposePar
 runParallel $(getApplication)

@@ -23,20 +23,16 @@ boundaryField
 {
 	leftInletWall
 	{
-//		type			timeVaryingMappedFixedValue;
         type            fixedValue;
 		value			uniform (0.4 0 0);
 	}
 	leftWall
 	{
-//		type			noSlip;
-		type			pressureInletOutletVelocity;
-		value			uniform (0 0 0);
+		type			zeroGradient;
 	}
 	rightWall
 	{
-		type			inletOutlet;
-		inletValue		uniform (0 0 0);
+		type			zeroGradient;
 	}
 	lowerWall
 	{
@@ -44,13 +40,12 @@ boundaryField
 	}
 	atmosphere
 	{
-//		type			zeroGradient;
 		type			pressureInletOutletVelocity;
 		value			uniform (0 0 0);
 	}
 	sides
 	{
-		type			noSlip;
+		type			empty;
 	}
 	defaultFaces
 	{

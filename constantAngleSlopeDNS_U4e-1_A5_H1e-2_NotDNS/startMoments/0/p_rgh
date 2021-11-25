@@ -52,8 +52,7 @@ boundaryField
 
     sides
     {
-        type            fixedFluxPressure;
-        value           uniform 0;
+        type            empty;
     }
 
     defaultFaces

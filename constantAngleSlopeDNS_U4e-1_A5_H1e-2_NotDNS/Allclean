@@ -6,7 +6,6 @@ cd "${0%/*}" || exit                                # Run from this directory
 cleanCase
 rm screenlog*
 rm timeStepsList.txt
-cp 0/alpha.water.orig 0/alpha.water
-cp 0/U.orig 0/U
+rm -rf [0-9]*
 
 #------------------------------------------------------------------------------
