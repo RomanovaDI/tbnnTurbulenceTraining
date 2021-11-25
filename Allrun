@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/
+./Allclean
+./Allrun
+cd ../constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/
+./Allclean
+./Allrun
+cd ../
