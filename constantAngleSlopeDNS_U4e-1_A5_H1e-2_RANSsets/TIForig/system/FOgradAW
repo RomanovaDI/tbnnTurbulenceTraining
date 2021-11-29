@@ -1,0 +1,20 @@
+gradAW
+{
+    // Mandatory entries
+    type            grad;
+    libs            (fieldFunctionObjects);
+    field           alpha.water;
+
+    // Optional (inherited) entries
+    result          gradAW;
+//    region          region0;
+//    enabled         true;
+//    log             true;
+//    timeStart       0.25;
+//    timeEnd         1000;
+//    executeControl  timeStep;
+//    executeInterval 5;
+//    writeControl    timeStep;
+//    writeInterval   25;
+}
+

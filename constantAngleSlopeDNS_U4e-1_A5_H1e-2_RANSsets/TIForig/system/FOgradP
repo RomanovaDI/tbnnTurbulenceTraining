@@ -1,0 +1,20 @@
+gradP
+{
+    // Mandatory entries
+    type            grad;
+    libs            (fieldFunctionObjects);
+    field           p_rgh;
+
+    // Optional (inherited) entries
+    result          gradP;
+//    region          region0;
+//    enabled         true;
+//    log             true;
+//    timeStart       0.25;
+//    timeEnd         1000;
+//    executeControl  timeStep;
+//    executeInterval 5;
+//    writeControl    timeStep;
+//    writeInterval   25;
+}
+

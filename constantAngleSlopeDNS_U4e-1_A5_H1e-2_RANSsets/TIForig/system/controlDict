@@ -60,4 +60,11 @@ maxDeltaT       1;
 
 #sinclude   "sampling"
 
+functions
+{
+	#include "FOgradP"
+	#include "FOgradAW"
+	#include "FOgradU"
+}
+
 // ************************************************************************* //
