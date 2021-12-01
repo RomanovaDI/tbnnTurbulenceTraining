@@ -19,18 +19,18 @@ application     interFoam;
 
 startFrom       startTime;
 
-startTime       0;
+startTime       0.1;
 
 stopAt          endTime;
 
-endTime         0.00002;
+endTime         0.1002;
 
-deltaT          1e-07;
+deltaT          1e-06;
 
 writeControl    adjustableRunTime;
 //writeControl    timeStep;
 
-writeInterval   1e-06;
+writeInterval   1e-05;
 //writeInterval   3;
 
 purgeWrite      0;

@@ -1,0 +1,47 @@
+)
+;
+
+boundaryField
+{
+    leftInletWall
+    {
+        type            fixedFluxPressure;
+        value           uniform 0;
+    }
+
+    leftWall
+    {
+        type            fixedFluxPressure;
+        value           uniform 0;
+    }
+
+    rightWall
+    {
+        type            fixedFluxPressure;
+        value           uniform 0;
+    }
+
+    lowerWall
+    {
+        type            fixedFluxPressure;
+        value           uniform 0;
+    }
+
+    atmosphere
+    {
+        type            totalPressure;
+        p0              uniform 0;
+    }
+
+    sides
+    {
+        type            empty;
+    }
+
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //

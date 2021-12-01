@@ -1,4 +1,4 @@
-gradP
+gradU
 {
     // Mandatory entries
     type            grad;

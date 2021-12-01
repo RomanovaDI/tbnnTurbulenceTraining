@@ -1,5 +1,7 @@
 *timeStepsList.txt
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/TIF[0-9]*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/KEIF[0-9]*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/KWIF[0-9]*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/.ipynb_checkpoints*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/log.*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/processor*

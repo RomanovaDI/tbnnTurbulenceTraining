@@ -1,3 +1,5 @@
 #!/bin/sh
 
 rm -rf TIF[0-9]*
+rm -rf KEIF[0-9]*
+rm -rf KWIF[0-9]*
