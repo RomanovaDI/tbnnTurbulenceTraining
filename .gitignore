@@ -8,3 +8,13 @@ constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/processor*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/[0-9]*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/constant/polyMesh*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/dnn_model*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/postProcessing*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_NotDNS/pics*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/pics*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/NNdata*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/TIForig/0/alpha.water
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/TIForig/0/U
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/TIFnoTsLambdas/*
+constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/tmp*
+tmp*
+*.foam
