@@ -18,3 +18,4 @@ constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/TIFnoTsLambdas/*
 constantAngleSlopeDNS_U4e-1_A5_H1e-2_RANSsets/tmp*
 tmp*
 *.foam
+.ipynb_checkpoints*
