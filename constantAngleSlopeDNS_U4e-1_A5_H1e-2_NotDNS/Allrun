@@ -12,6 +12,6 @@ runApplication blockMesh
 runApplication decomposePar
 runParallel $(getApplication)
 runApplication reconstructPar
-python3 prepareDNSData.py > log.python
+#python3 prepareDNSData.py > log.python
 
 #------------------------------------------------------------------------------
